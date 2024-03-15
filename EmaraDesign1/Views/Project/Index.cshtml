@@ -7,23 +7,18 @@ ViewData["Title"] = "Index";
 }
 
 <h1>Projects</h1>
-<table class="table table-bordered table-hover">
-    <tr>
-        <th>id</th>
-        <th>Name</th>
-        <th>image</th>
-        <th>details</th>
-    </tr>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 20px;">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td><img src="/image/@item.image" style="width:100px"></img></td>
-            <td><a href="https://localhost:7269/project/GetDetails/?name=@item.Name">Details</a></td>
-        </tr>
+        <div class="card" style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px;">
+            <img class="card-img-top" src="/image/@item.image" alt="Card image" style="width: 100%; height: auto;">
+            <div class="card-body" style="padding: 20px;">
+                <h4 class="card-title">@item.Name</h4>
+                <a href="https://localhost:7269/project/GetDetails/?name=@item.Name">Details</a>
+            </div>
+        </div>
     }
-
-</table>
+</div>
    back to home
 <a href="https://localhost:7269/">click here</a>
