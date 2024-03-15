@@ -1,0 +1,28 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "Update Project";
+}
+
+<h2>Update Project</h2>
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="date"></label>
+        <input asp-for="date" class="form-control" type="date" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/MM/yyyy" />
+        <span asp-validation-for="date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClientId"></label>
+        <input asp-for="ClientId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="image"></label>
+        <input asp-for="image" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

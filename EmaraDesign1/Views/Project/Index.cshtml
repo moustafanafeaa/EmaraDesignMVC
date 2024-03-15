@@ -1,0 +1,29 @@
+﻿@using EmaraDesign1.Services
+@inject IClientProjectsService getproj
+
+@model List<Project>
+@{
+ViewData["Title"] = "Index";
+}
+
+<h1>Projects</h1>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>image</th>
+        <th>details</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><img src="/image/@item.image" style="width:100px"></img></td>
+            <td><a href="https://localhost:7269/project/GetDetails/?name=@item.Name">Details</a></td>
+        </tr>
+    }
+
+</table>
+   back to home
+<a href="https://localhost:7269/">click here</a>

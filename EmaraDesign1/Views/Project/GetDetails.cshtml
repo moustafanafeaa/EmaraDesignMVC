@@ -1,0 +1,19 @@
+﻿@using EmaraDesign1.Services
+@inject IClientProjectsService getproj
+
+
+@model Project
+@{
+    ViewData["Title"] = "GetByClientId";
+}
+
+<div class="card" style="width:400px">
+    <img class="card-img-top" src="/image/@Model.image" alt="Card image" style="width:100%">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <p class="card-text">@Model.date.ToString("MM/dd/yyyy") </p>
+        <p class="card-text">@Model.Client.name</p>
+        <p class="card-text">@Model.Client.number</p>
+        <a href="https://localhost:7269/project/update/?name=@Model.Name" class="btn btn-primary">update</a>
+    </div>
+</div>

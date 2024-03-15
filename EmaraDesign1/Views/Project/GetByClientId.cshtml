@@ -1,0 +1,46 @@
+﻿@using EmaraDesign1.Services
+@inject IClientProjectsService getproj
+
+
+@model List<Project>
+@{
+    ViewData["Title"] = "GetByClientId";
+}
+@{
+    string clientName = null;
+}
+@foreach (var item in Model)
+{
+            @if (clientName == null || clientName != item.Client?.name)
+            {
+                clientName = item.Client?.name;
+               
+            }
+}
+ 
+<h1>projects of @clientName</h1>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>date</th>
+        <th>image</th>
+        
+    </tr>
+    
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.date</td>
+            <td><img src="/image/@item.image" style="width:100px"></img></td>
+          
+        </tr>
+    }
+
+</table>
+   back to home
+<a href="https://localhost:7269/">click here</a>
